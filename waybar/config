@@ -1,204 +1,128 @@
-// KED'S WAYBAR CONFIG
-// MAIN CONFIG FILE [CONFIG]
-// (C) 2023 Kedislav - File under GNU GPL v3.0
-/////////////////////////////////////////////////////////////////////
-// Scripts and custom modules are saved in the "scripts" directory.
-/////////////////////////////////////////////////////////////////////
-
 {
     "layer": "top",
-    "position": "top",
-    "height": 48,
-    "margin": "0, 0, 0, 0",
+    "position": "bottom",
+    "height": 37, // Waybar height (to be removed for auto height)
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/media"],
+    "modules-center": ["clock" , "temperature"],
+    "modules-right": ["pulseaudio", "network", "tray", "custom/wlogout"],
 
-    "modules-left": ["custom/launcher", "wlr/workspaces", "custom/weather", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "backlight", "custom/notification", "network", "idle_inhibitor", "hyprland/language", "battery", "custom/powermenu"],
-
-    // MODULE CONFIG
-
+    // Modules configuration
+     "hyprland/workspaces": {
+         "disable-scroll": false,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": " ",
+             "2": " ",
+             "3": "󰙯 ",
+             "4": " ",
+             "5": " ",
+             "6": " ",
+             "7": " ",
+             "8": " ",
+             "9": " ",
+             "10": " ",
+             "urgent": " ",
+             "focused": " ",
+             "default": " "
+         }
+     },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/language": {
+        "format": "{short} ⠀⠀"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format": "{:%H:%M}  ",
+	"format-alt": "{:%A, %B %d, %Y}  "
+    },
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}%  "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [" ", " ", " "]
+    },
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-icons": ["","","","", "", "", ""],
-        "min-length": 7
+        "format-icons": [" ", " "],
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1"
     },
-
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "inhibited-none": "",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-inhibited-none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-
     "battery": {
         "states": {
             "warning": 30,
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "tooltip-format": "{timeTo}, {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
     },
-
-    "hyprland/window": {
-        "max-length": 40,
-        "format": "{}",
-        "separate-outputs": true
-    },
-
-    "hyprland/language": {
-        "format": "{}",
-        "format-ru": "ru",
-        "format-en": "en",
-        "keyboard-name": "logitech-logig-mkeyboard"
-    },
-
-    "bluetooth": {
-        "format-disabled": "",
-        "format-off": "",
-        "format-on": "",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias}  {device_battery_percentage}%",
-        "on-click": "connman-gtk",
-        "tooltip": false
-    },
-
-    "clock": {
-        "tooltip": false,
-        "format": "{:%d %b %I:%M}"
-    },
-
-    "clock#calendar": {
-        "tooltip": false,
-        "format": "{:%d %b}"
-    },
-
-    "cpu": {
-        "interval": 30,
-        "format": " {usage}%",
-        "min-length": 7
-    },
-
-    "disk": {
-        "interval": 30,
-        "format": " {percentage_used}%",
-        "path": "/"
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-
-    "keyboard-state": {
-        //"numlock": true,
-        "capslock": true,
-        "format": "{name} {icon} ",
-        "format-icons": {
-            "locked": " ",
-            "unlocked": ""
-        },
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "min-length": 7
-    },
-
     "network": {
-        "tooltip": true,
-        "interval": 30,
-	"format": "",
-        "format-wifi": "",
-        "format-ethernet": "",
-        "format-disconnected": "",
-        "tooltip-format": "LINK: {ifname}\nIP: {ipaddr}/{cidr}\nSPEED: {bandwidthTotalBytes}",
-        "on-click": "connman-gtk"
+        "format-wifi": "直 ",
+        "format-ethernet": "Purple Aestethic ♥︎ ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "睊 ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{essid} {signalStrength}%"
     },
-    "network#vpn": {
-        "interface": "tun0",
-        "format": ""
-    },
-
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-    "format-bluetooth": " {volume}%",
-    "format-muted": "",
-    "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", "", ""]
-        },
-    "scroll-step": 3,
-    "on-scroll-up": "amixer -q sset Master 1%-",
-    "on-scroll-down": "amixer -q sset Master 1%+"
-    },
-
-    "wlr/workspaces": {
-        "on-click" : "activate",
-        "all-outputs" : true,
-        "disable-scroll" : true,
-        "active-only" : false,
-        "format": "{icon}",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "   {volume}% {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " ",
+        "format-source-muted": " ",
         "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": "",
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "tooltip-format": "{desc}, {volume}%",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        
+        "escape": true,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "format-icons": {
+            "spotify": " ",
+            "default": " "
         },
     },
-
-    "temperature": {
-	    "tooltip": false,
-	    "interval": 30,
-	    "critical-threshold": 70,
-	    "format": "{icon} {temperatureC}",
-	    "format-icons": ["", "", "", "", ""]
-    },
-
-    // CUSTOM MODULES
-
-     "custom/launcher": {
-        "format": "",
-        "on-click": "~/.config/rofi/bin/launcher &",
-        "tooltip": false
-    },
-
-    "custom/weather": {
-        "format": "{}",
-        "tooltip": true,
-        "interval": 1800,
-        "exec": "$HOME/.config/waybar/scripts/wttr.py",
-        "return-type": "json"
-    },
-
-    "custom/powermenu": {
+    "custom/wlogout": {
         "format": "",
-        "on-click": "~/.config/rofi/bin/powermenu &",
-        "on-click-right": "~/.config/rofi/bin/powermenu &",
-        "tooltip": false
+        "interval": "once",
+        "on-click": "wlogout -c 5 -r 5 -p layer-shell",
+    },
+    "custom/launcher": {
+	"format": " ",
+	"on-click": "rofi -show drun -show-icons",
+	"escape": true,
+	"tooltip": false
     },
 }
+
