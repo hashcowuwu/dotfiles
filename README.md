@@ -1,4 +1,4 @@
-# myLinux dotfile
+# myLinux dotfiles
 
 ![](https://github.com/Erhuhhj/myLinux/blob/master/img.png)
 
