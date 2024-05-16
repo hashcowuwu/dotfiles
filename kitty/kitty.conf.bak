@@ -1,3 +1,4 @@
+include /home/tux/.config/kitty/catppuccin/kitty.conf
 font_family JetBrains Mono Nerd Font 
 font_size 16
 confirm_os_window_close 0
@@ -21,7 +22,6 @@ selection_background  #505a60
 background_opacity  1
 
 foreground #a9b1d6
-foreground #e0c3fc
 background #1d1626
 #background #1a1b26
 
@@ -42,7 +42,7 @@ color3  #e0af68
 color11 #e0af68
 
 # Blue
-color4  #8C1BAB
+color4  #7aa2f7
 color12 #7aa2f7
 
 # Magenta
@@ -50,7 +50,6 @@ color5  #bb9af7
 color13 #bb9af7
 
 # Cyan
-
 color6  #7dcfff
 color14 #7dcfff
 
@@ -94,4 +93,3 @@ macos_titlebar_color #16161e
 # active_tab_background   #1f2335
 # inactive_tab_background #1f2335
 # macos_titlebar_color #1f2335
-
