@@ -15,10 +15,10 @@ cp myLinux/* .config/ -rf
 ## Depend 
 
 ```shell
-yay -S fish hyprshot waybar rofi cava btop starship
+yay -S fish hyprshot waybar rofi cava btop starship neovide neovim
 ```
 
-## nvim keybind
+### Nvim keybind
 
 
 

@@ -1,9 +1,11 @@
+include /home/tux/.config/kitty/catppuccin/kitty.conf
 font_family JetBrains Mono Nerd Font 
-font_size 12
+font_size 16
 confirm_os_window_close 0
 
 adjust_line_height 0
-cursor #00ccff
+#cursor #00ccff
+cursor #e0c3fc
 
 # A port of forest night by sainnhe
 # https://github.com/sainnhe/forest-night
@@ -19,7 +21,7 @@ selection_foreground  #d8caac
 selection_background  #505a60
 background_opacity  1
 
-foreground #C346C2
+foreground #a9b1d6
 background #1d1626
 #background #1a1b26
 
@@ -32,7 +34,7 @@ color1 #f7768e
 color9 #f7768e
 
 # Green
-color2  #f7768e
+color2  #73daca
 color10 #73daca
 
 # Yellow
@@ -40,8 +42,7 @@ color3  #e0af68
 color11 #e0af68
 
 # Blue
-
-color4  #8C1BAB
+color4  #7aa2f7
 color12 #7aa2f7
 
 # Magenta
@@ -49,7 +50,7 @@ color5  #bb9af7
 color13 #bb9af7
 
 # Cyan
-color6 #8C1BAB 
+color6  #7dcfff
 color14 #7dcfff
 
 # White
