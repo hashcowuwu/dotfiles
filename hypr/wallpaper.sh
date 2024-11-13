@@ -1,6 +1,6 @@
 #!/bin/sh
 num=$RANDOM
-urk='/home/hhj/wallpaper'
+urk='/home/tux/wallpaper'
 arr=(echo $urk/*)
 sum=`ls -l $urk |grep "^-"|wc -l`
 path="" 
