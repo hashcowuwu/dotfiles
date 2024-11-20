@@ -17,7 +17,6 @@ cp myLinux/* .config/ -rf
 yay -S fish hyprshot waybar rofi cava btop starship neovide neovim
 ```
 
-### Nvim keybind
 
 
 
