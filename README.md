@@ -16,7 +16,8 @@ yay -S fish hyprshot waybar rofi cava btop starship neovide neovim
 ```
 
 
-## 更换 HYDE了 本项目不再维护
+## 椤圭洰宸茬粡寮冪敤
 
+鐜板湪浣跨敤Hyde
 
 https://github.com/HyDE-Project/HyDE
